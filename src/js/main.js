@@ -1,28 +1,13 @@
-//select element and add event sinlge button
-document.querySelector("#activate-flight").addEventListener("click", flightHandlerFunction);
+//select element and add event 
+document.querySelector("#activate-flight").addEventListener("click", powersToggle);
 
-//function to toggle css class
-function flightHandlerFunction(){
-    document.getElementById("flight").classList.toggle("enabled");
-}
+//select element and add event 
+document.querySelector("#activate-mindreading").addEventListener("click", powersToggle);
 
-
-//select element and add event single button
-document.querySelector("#activate-mindreading").addEventListener("click", mindReadingHandlerFunction);
-
-//function to toggle css class
-function mindReadingHandlerFunction(){
-    document.getElementById("mindreading").classList.toggle("enabled");
-}
+//select element and add event 
+const xray = document.querySelector("#activate-xray").addEventListener("click", powersToggle);
 
 
-//select element and add event single button
-document.querySelector("#activate-xray").addEventListener("click", xrayHandlerFunction);
-
-//function to toggle css class
-function xrayHandlerFunction(){
-    document.getElementById("xray").classList.toggle("enabled");
-}
 
 //seclect elemetn and add event
 document.querySelector("#activate-all").addEventListener("click", allPowersHandlerFunction);
@@ -44,3 +29,18 @@ function noPowersHandlerFunction(){
         element.classList.toggle("disabled");
     })
 }
+
+
+
+
+//One function to split the powers on or off
+function powersToggle(event) { 
+    //split turned activate-power into an array
+    let power = event.target.id.split("-");
+    console.log(power);
+    //use array position 1 to grab power name
+    document.getElementById(power[1]).classList.toggle("enabled");
+}
+
+//enabled works as a toggle because it is listed after disabled in css!!!!!!!
+console.log("Enabled works as a toggle because it is listed after disabled in css!!!!!!!")
